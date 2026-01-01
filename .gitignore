@@ -1,0 +1,7 @@
+# Ignore compiled Python files
+__pycache__/
+uploads/*
+!uploads/.gitkeep
+
+#ignore ffs files
+sync.ffs_db

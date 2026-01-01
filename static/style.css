@@ -1,0 +1,39 @@
+body {
+    padding: 10px;
+    font-size: 12pt;
+}
+
+#header{
+    display: flex;
+    padding-bottom: 10px;
+    gap: 10px;
+}
+
+.btn { 
+  display: inline-block;
+  padding: 5px 5px;
+  background-color: #dddddd;   
+  color: black;                
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  font: inherit;
+}
+
+.subtn {
+    font-weight: bold;
+}
+
+.deletelink{
+    color: red;
+    padding-left: 10px;
+}
+
+.genlink{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footer{
+    padding-top: 10px;
+}

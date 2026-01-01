@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patient Record Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div id = "header">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" style="height: 50px; width: auto;">  
+    <h3>Athena Patient Record Portal</h3>
+  </div>
+    <h3>Login</h3>
+    <form method="post">
+      <input name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+    {% with msgs = get_flashed_messages() %}
+      {% if msgs %}<p style="color:red">{{ msgs[0] }}</p>{% endif %}
+    {% endwith %}
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patient Record Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div id = "header">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" style="height: 50px; width: auto;">  
+    <h3>Athena Patient Record Portal</h3>
+  </div>
+
+    <form method="POST" enctype="multipart/form-data" id="form">
+        <label for="patient_id">Patient ID:</label><br>
+        <input type="text" name="patient_id" id="patient_id" required><br><br>
+
+        <label for="document_type">Document Type:</label><br>
+        <select name="document_type" id="document_type" required></select><br><br>
+
+        <!-- single file input -->
+        <input id="file" type="file" name="file" accept="image/*" required style="display:none">
+
+        <!-- two triggers -->
+        <button class = "btn" type="button" id="btnCamera" onclick="clickUpload('capture')">Take Photo</button>
+        <button class = "btn" type="button" id="btnGallery"onclick="clickUpload('select')">Choose Files</button>
+
+        <!-- <label for="file">Upload Image:</label><br>
+        <input type="file" name="file" id="file" accept="image/*" capture="environment" required><br><br> -->
+        <!-- Take Photo -->
+          <!-- <label>
+            <input type="file" name="file" accept="image/*" capture="environment" style="display:none">
+            <span class="btn">Take Photo</span>
+          </label> -->
+        <!-- Or pick from gallery -->
+          <!-- <label>
+            <input type="file" name="file" accept="image/*" style="display:none">
+            <span class="btn">Choose from Gallery</span>
+          </label> -->
+        
+        <br><br>
+        
+        <input type="submit" value="Upload" class="btn subtn">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+  <div class = 'footer'>
+    <button class = "btn" type="button" onclick = "window.location.href = '/lookup'">Lookup Records</button>
+    <button class = "btn" type="button" onclick = "window.location.href = '/logout'">Logout</button>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

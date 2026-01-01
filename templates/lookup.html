@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patient Record Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div id = "header">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" style="height: 50px; width: auto;">  
+    <h3>Athena Patient Record Portal</h3>
+  </div>
+  <div>
+    <label for="patient_id_lookup">Patient ID:</label><br>
+    <input type="text" name="patient_id_lookup" id="patient_id_lookup"><br><br>
+    <button class = "btn subtn" type="button" id="btnLookup" onclick="showPatientFiles()">Lookup Records</button>
+    <br><br>
+  </div>
+  <div id = "records_div"></div>
+  <div class = 'footer'>
+    <button class = "btn" type="button" onclick = "window.location.href = '/upload'">Upload New Records</button>
+    <button class = "btn" type="button" onclick = "window.location.href = '/logout'">Logout</button>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
